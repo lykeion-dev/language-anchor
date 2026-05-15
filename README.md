@@ -1,24 +1,34 @@
-# Language Enforcer for OpenClaw
+# Language Anchor for OpenClaw
 
-An OpenClaw plugin that forces the AI to respond in a specific language, regardless of what language the user writes in.
+Force English to keep your AI sharp. Force local language to keep it relevant.
+
+An OpenClaw plugin that pins your AI's output language, preventing it from drifting into the wrong language mid-conversation. Dual injection makes it stick.
+
+## Why You Need This
+
+### Problem 1: "My AI got dumber after switching languages"
+Models degrade when they drift away from English mid-conversation. A user writes in Japanese, the AI starts responding in Japanese, and reasoning quality drops. Force English to maintain peak performance.
+
+### Problem 2: "I need responses in our local language, no matter what the user types"
+Perfect for non-English deployments. User writes in English? AI answers in Japanese. User writes in Japanese? AI still answers in Japanese. Pin the output language to match your local context.
 
 ## How It Works
 
-Injects mandatory language instructions at two points in the prompt:
+Other prompt-level solutions get buried and ignored by the model. Language Anchor injects at **two points** in every turn:
 
-1. **System context** (`appendSystemContext`) — persistent system-level override
-2. **Turn context** (`prependContext`) — injected before each user message
+1. **System context** — persistent system-level override
+2. **Turn context** — injected right before each user message
 
-Dual injection maximizes compliance across different models.
+Dual injection makes the instruction much harder to ignore.
 
 ## Supported Languages
 
-Supports the top 30 languages by speaker count: English, 中文, हिन्दी, Español, العربية, বাংলা, Português, Русский, اردو, Bahasa Indonesia, Deutsch, 日本語, Kiswahili, मराठी, తెలుగు, Türkçe, தமிழ், 한국어, Tiếng Việt, Italiano, Yorùbá, Hausa, Afaan Oromoo, ਪੰਜਾਬੀ, فارسی, Basa Jawa, 吴语, ગુજરાતી, Soomaali, Magyar.
+30 languages: English, 中文, हिन्दी, Español, العربية, বাংলা, Português, Русский, اردو, Bahasa Indonesia, Deutsch, 日本語, Kiswahili, मराठी, తెలుగు, Türkçe, தமிழ், 한국어, Tiếng Việt, Italiano, Yorùbá, Hausa, Afaan Oromoo, ਪੰਜਾਬੀ, فارسی, Basa Jawa, 吴语, ગુજરાતી, Soomaali, Magyar.
 
 ## Installation
 
 ```bash
-openclaw plugins install https://github.com/wakaru-kun/language-enforcer
+openclaw plugins install https://github.com/lykeion-dev/language-anchor
 ```
 
 ## Configuration
@@ -28,7 +38,7 @@ Add to your `openclaw.json`:
 ```json
 {
   "plugins": {
-    "language-enforcer": {
+    "language-anchor": {
       "enabled": true,
       "config": {
         "language": "en"
@@ -49,19 +59,25 @@ Add to your `openclaw.json`:
 
 ### Examples
 
-Force Japanese for a specific model:
+Force English to keep reasoning sharp:
 ```json
 {
-  "language": "ja",
-  "targetModels": ["dashscope/*"]
+  "language": "en"
 }
 ```
 
-Force Korean for a specific agent:
+Force Japanese for a local deployment:
 ```json
 {
-  "language": "ko",
-  "targetAgents": ["my-korean-bot"]
+  "language": "ja"
+}
+```
+
+Target only specific models:
+```json
+{
+  "language": "en",
+  "targetModels": ["dashscope/*", "zai/*"]
 }
 ```
 

@@ -1,7 +1,7 @@
 {
-  "id": "language-enforcer",
-  "name": "Language Enforcer",
-  "description": "Enforce a specific output language by injecting system-prompt instructions. Supports top 30 languages by speaker count.",
+  "id": "language-anchor",
+  "name": "Language Anchor",
+  "description": "Force English to keep your AI sharp. Force local language to keep it relevant. Dual-injection language enforcement. 30 languages supported.",
   "activation": {
     "onStartup": true
   },

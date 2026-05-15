@@ -61,8 +61,8 @@ function matchesPattern(value, patterns) {
 }
 
 export default definePluginEntry({
-  id: "language-enforcer",
-  name: "Language Enforcer",
+  id: "language-anchor",
+  name: "Language Anchor",
   description: "Enforce a specific output language via system-prompt injection",
   register(api) {
     api.on(

@@ -1,7 +1,7 @@
 {
-  "name": "@wakaru-kun/language-enforcer",
+  "name": "@lykeion-dev/language-anchor",
   "version": "1.0.0",
-  "description": "OpenClaw plugin to enforce a specific output language via system-prompt injection. Supports 30 languages.",
+  "description": "Force English to keep your AI sharp. Force local language to keep it relevant. Dual-injection language enforcement for OpenClaw.",
   "main": "index.js",
   "type": "module",
   "keywords": ["openclaw", "openclaw-plugin", "language", "enforcement", "i18n"],
@@ -9,7 +9,7 @@
   "author": "Wakaru-kun",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wakaru-kun/language-enforcer"
+    "url": "https://github.com/lykeion-dev/language-anchor"
   },
   "openclaw": {
     "extensions": ["./index.js"],
