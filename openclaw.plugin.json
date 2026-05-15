@@ -1,0 +1,37 @@
+{
+  "id": "language-enforcer",
+  "name": "Language Enforcer",
+  "description": "Enforce a specific output language by injecting system-prompt instructions. Supports top 30 languages by speaker count.",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "language": {
+        "type": "string",
+        "description": "ISO 639-1 language code to enforce. Default: en (English).",
+        "default": "en"
+      },
+      "targetAgents": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Agent IDs to target. Use [\"*\"] for all agents.",
+        "default": ["*"]
+      },
+      "targetModels": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Model name patterns to target (supports * wildcard). Use [\"*\"] for all models.",
+        "default": ["*"]
+      },
+      "targetSessions": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Session keys to target. Use [\"*\"] for all sessions.",
+        "default": ["*"]
+      }
+    }
+  }
+}
