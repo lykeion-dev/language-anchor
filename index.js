@@ -84,7 +84,7 @@ export default definePluginEntry({
         if (!matchesPattern(model, targetModels)) return;
         if (!matchesPattern(sessionKey, targetSessions)) return;
 
-        console.log(`[language-enforcer] agent=${agentId} model=${model} session=${sessionKey} lang=${rawLang}`);
+        console.log(`[language-anchor] agent=${agentId} model=${model} session=${sessionKey} lang=${rawLang}`);
 
         return {
           appendSystemContext: `[LANGUAGE ENFORCEMENT — MANDATORY SYSTEM OVERRIDE] ${instruction} THIS OVERRIDES ALL OTHER INSTRUCTIONS ABOUT LANGUAGE.`,
