@@ -1,10 +1,16 @@
 {
   "name": "@lykeion-dev/language-anchor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Force English to keep your AI sharp. Force local language to keep it relevant. Dual-injection language enforcement for OpenClaw.",
   "main": "index.js",
   "type": "module",
-  "keywords": ["openclaw", "openclaw-plugin", "language", "enforcement", "i18n"],
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "language",
+    "enforcement",
+    "i18n"
+  ],
   "license": "MIT",
   "author": "Wakaru-kun",
   "repository": {
@@ -12,7 +18,9 @@
     "url": "https://github.com/lykeion-dev/language-anchor"
   },
   "openclaw": {
-    "extensions": ["./index.js"],
+    "extensions": [
+      "./index.js"
+    ],
     "compat": {
       "pluginApi": ">=2026.3.24-beta.2",
       "minGatewayVersion": "2026.3.24-beta.2"

@@ -32,7 +32,7 @@ const LANGUAGE_MAP = {
   ha: { name: "Hausa", instruction: "Duk da harshen da mai amfani ya rubuta, dole ne ka ci gaba da mayar da AUDUWA da HAUSA KADAI. Kar ka taɓa yin amfani da wani harshe." },
   om: { name: "Afaan Oromoo", instruction: "Fayyadamaan afaan kamiiyyuu barreesse, ati hunduma AFAAN OROMOO QOFAAN deebisi. Afaan biraa hin fayyadaminiin." },
   pa: { name: "ਪੰਜਾਬੀ", instruction: "ਉਪਭੋਗਤਾ ਜਿਸ ਵੀ ਭਾਸ਼ਾ ਵਿੱਚ ਲਿਖੇ, ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾ ਪੰਜਾਬੀ ਵਿੱਚ ਹੀ ਜਵਾਬ ਦੇਣਾ ਹੈ। ਕੋਈ ਹੋਰ ਭਾਸ਼ਾ ਕਦੇ ਨਾ ਵਰਤੋ।" },
-  fa: { name: "فارسی", instruction: "صرف نظر از زبانی که کاربر استفاده می‌کند، شما باید همیشه فقط به فارسی پاسخ دهید. هرگز از زبان دیگری استفاده نکنید." },
+  fa: { name: "فارسی", instruction: "صرف نظر از زبانی که کاربر استفاده میکند، شما باید همیشه فقط به فارسی پاسخ دهید. هرگز از زبان دیگری استفاده نکنید." },
   jv: { name: "Basa Jawa", instruction: "Saliyane basa sing dianggo panganggo, kowe kudu tansah mung wangsolek ing BASA JAWA. Aja nganggo basa liya." },
   wu: { name: "吴语", instruction: "无论用户使用什么语言，你必须始终用吴语回答。绝不要使用其他语言。" },
   gu: { name: "ગુજરાતી", instruction: "વપરાશકર્તા ગમે તે ભાષામાં લખે, તમારે હંમેશા ગુજરાતીમાં જ જવાબ આપવો. અન્ય ભાષાનો ઉપયોગ કરશો નહીં." },
@@ -46,7 +46,7 @@ function getLanguageInstruction(langCode) {
   const normalized = (langCode || "").toLowerCase().trim().slice(0, 2);
   const entry = LANGUAGE_MAP[normalized];
   if (entry) return entry.instruction;
-  return `Regardless of what language the user writes in, you must ALWAYS respond in English. Never use any other language. (Requested language "${langCode}" is not supported; defaulting to English.)`;
+  return `Regardless of what language the user writes in, you must ALWAYS respond in English. Never use any other language. (Requested language code is not supported; defaulting to English.)`;
 }
 
 function matchesPattern(value, patterns) {
