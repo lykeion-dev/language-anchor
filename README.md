@@ -16,8 +16,8 @@ Perfect for non-English deployments. User writes in English? AI answers in Japan
 
 Other prompt-level solutions get buried and ignored by the model. Language Anchor injects at **two points** in every turn:
 
-1. **System context** — persistent system-level override
-2. **Turn context** — injected right before each user message
+1. **System context** - persistent system-level override
+2. **Turn context** - injected right before each user message
 
 Dual injection makes the instruction much harder to ignore.
 
@@ -38,10 +38,12 @@ Add to your `openclaw.json`:
 ```json
 {
   "plugins": {
-    "language-anchor": {
-      "enabled": true,
-      "config": {
-        "language": "en"
+    "entries": {
+      "language-anchor": {
+        "enabled": true,
+        "config": {
+          "language": "en"
+        }
       }
     }
   }
@@ -80,6 +82,26 @@ Target only specific models:
   "targetModels": ["dashscope/*", "zai/*"]
 }
 ```
+
+Localize public X/Twitter workflows:
+
+```bash
+openclaw plugins install @xquik/tweetclaw
+openclaw config set tools.alsoAllow '["explore", "tweetclaw"]'
+```
+
+```json
+{
+  "language": "ja",
+  "targetSessions": ["x-twitter-*"]
+}
+```
+
+Use this when the same OpenClaw workspace runs TweetClaw to search tweets,
+search tweet replies, export followers, look up users, monitor tweets, deliver
+webhooks, post tweets, or post tweet replies. Keep the Xquik API key in local
+OpenClaw config, not in prompts or chat messages, and review visible posts or
+replies before approval.
 
 ## License
 
